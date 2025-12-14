@@ -1,56 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Donate</title>
+
   <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #1f2937;
+      --subtext: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #020617;
+        --text: #e5e7eb;
+        --subtext: #94a3b8;
+        --border: #1e293b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f7f7f7;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px;
       text-align: center;
-      padding: 40px;
     }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--subtext);
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
     .card {
-      background: #fff;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       padding: 24px;
-      margin: 20px auto;
-      width: 320px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    img {
-      width: 200px;
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
-    code {
-      display: block;
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--subtext);
+      margin-bottom: 16px;
+    }
+
+    .card img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .address {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
       word-break: break-all;
-      margin-top: 8px;
-      color: #555;
+      background: rgba(0,0,0,0.04);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 0.85rem;
+      color: var(--subtext);
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <h1>💖 Support My Work</h1>
+    <p class="subtitle">
+      If you find this project helpful, you can support it via crypto.
+    </p>
 
-  <h1>💖 Donate</h1>
-  <p>Choose your preferred network</p>
+    <div class="grid">
+      <div class="card">
+        <h2>Ethereum</h2>
+        <p>ETH / ERC20 (Ethereum Mainnet)</p>
+        <img src="eth_qr.png" alt="ETH QR Code">
+        <div class="address">
+          0xe5eef9f3926b74ec64e4815312e2a7d436a3d746
+        </div>
+      </div>
 
-  <div class="card">
-    <h2>Ethereum (ETH / ERC20)</h2>
-    <img src="eth_qr.png" alt="ETH QR">
-    <code>0xe5eef9f3926b74ec64e4815312e2a7d436a3d746</code>
+      <div class="card">
+        <h2>Bitcoin</h2>
+        <p>BTC (Native SegWit)</p>
+        <img src="btc_qr.png" alt="BTC QR Code">
+        <div class="address">
+          bc1qw3c0k64n3x7y5xf3jhgm63369hh327fr72q4n8
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Solana</h2>
+        <p>SOL (Solana Mainnet)</p>
+        <img src="sol_qr.png" alt="SOL QR Code">
+        <div class="address">
+          GUQf9PPE3CVao6nisdTWw1gwm3E2hEzjZvbMQBSgiG1C
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 · Thank you for your support 🙏
+    </footer>
   </div>
-
-  <div class="card">
-    <h2>Bitcoin (BTC)</h2>
-    <img src="btc_qr.png" alt="BTC QR">
-    <code>bc1qw3c0k64n3x7y5xf3jhgm63369hh327fr72q4n8</code>
-  </div>
-
-  <div class="card">
-    <h2>Solana (SOL)</h2>
-    <img src="sol_qr.png" alt="SOL QR">
-    <code>GUQf9PPE3CVao6nisdTWw1gwm3E2hEzjZvbMQBSgiG1C</code>
-  </div>
-
 </body>
 </html>
